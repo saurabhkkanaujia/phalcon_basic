@@ -62,9 +62,9 @@ $container->set(
                 'username' => 'root',
                 'password' => 'secret',
                 'dbname'   => 'tutorial',
-                ]
-            );
-        }
+            ]
+        );
+    }
 );
 
 // $container->set(

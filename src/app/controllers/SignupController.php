@@ -2,20 +2,24 @@
 
 use Phalcon\Mvc\Controller;
 
-class SignupController extends Controller{
+class SignupController extends Controller
+{
 
-    public function IndexAction(){
-
+    public function IndexAction()
+    {
     }
 
-    public function registerAction(){
+    public function registerAction()
+    {
         $user = new Users();
 
         $user->assign(
             $this->request->getPost(),
             [
                 'name',
-                'email'
+                'username',
+                'email',
+                'password'
             ]
         );
 
@@ -23,12 +27,21 @@ class SignupController extends Controller{
 
         $this->view->success = $success;
 
-        if($success){
+        if ($success) {
+            $this->dispatcher->forward(
+                [
+                    'controller' => 'login',
+                    'action' => 'index',
+                ]
+            );
             $this->view->message = "Register succesfully";
-        }else{
-            $this->view->message = "Not Register succesfully due to following reason: <br>".implode("<br>", $user->getMessages());
+        } else {
+            $this->view->message = "Not Register succesfully due to following reason: <br>" . implode("<br>", $user->getMessages());
         }
     }
 
-    
+    public function testAction()
+    {
+        // echo "nsandnaslnlnasd";
+    }
 }

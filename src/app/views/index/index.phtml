@@ -14,9 +14,11 @@ if ($users->count() > 0) {
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
         <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Name</th>
+            <th>Username</th>
             <th>Email</th>
+            <th>Password</th>
         </tr>
         </thead>
         <tfoot>
@@ -29,7 +31,9 @@ if ($users->count() > 0) {
             <tr>
                 <td><?php echo $user->id; ?></td>
                 <td><?php echo $user->name; ?></td>
+                <td><?php echo $user->username; ?></td>
                 <td><?php echo $user->email; ?></td>
+                <td><?php echo $user->password; ?></td>
             </tr>
         <?php } ?>
         </tbody>
