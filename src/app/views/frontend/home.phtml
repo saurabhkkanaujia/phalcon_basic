@@ -1,0 +1,55 @@
+<?php include 'header.phtml'; ?>
+
+    <div class="container">
+    
+    <!-- Jumbotron -->
+    <div id="intro" class="p-5 text-center bg-light">
+      <h1 class="mb-0 h4 display-3 fw-bold">Blogs</h1>
+      <div class="col-12 mt-5 text-start">
+                <a class="btn btn-success fs-4" href="/blog/addBlog">Add Blog</a>
+                <a class="btn btn-success fs-4" aria-current="page" href="/admin/dashboard">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+    </div>
+    </div>
+    <!-- Jumbotron -->
+        <section class="posts-listing">
+            <?php
+            foreach ($data as $key => $value) {
+                echo ' <article class="post-item">
+                <div class="post-item__inner">
+
+                    <div class="post-item__thumbnail-wrapper">
+                        <div class="post-item__thumbnail" style="background-image:url(image_url.jpg);"></div>
+                    </div>
+
+                    <div class="post-item__content-wrapper">
+                        <h2 class="post-item__title heading-size-4"><span>' . $value->title . '</span></h2>
+
+
+                        <div class="post-item__metas">
+                            <time class="post-item__meta post-item__meta--date" datetime="">' .$value->time. '</time>
+                            <p class="post-item__meta post-item__meta--category">' . $value->category . '</p>
+                        </div>
+
+                        <div class="post-item__excerpt">
+                        ' . $value->description . ' </div>
+
+                        <div class="post-item__read-more-wrapper">
+                            <form action ="singleBlog" method="POST">
+                                <button class="btn fs-4 post-item__read-more" name = "singleBlog" value=' . $value->id . '>Read more</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </article>';
+            }
+            ?>
+           
+
+
+        </section>
+    </div>

@@ -10,4 +10,14 @@ class IndexController extends Controller
         $this->view->users = Users::find();
         // echo "jhsvdjvjsvd";
     }
+
+    public function signOutAction() {
+        session_destroy();
+        $this->dispatcher->forward(
+            [
+                'controller' => 'login',
+                'action' => 'index',
+            ]
+        );
+    }
 }
