@@ -28,18 +28,21 @@ class BlogController extends Controller
             $blog = Blogs::findFirst($id);
             $blog->status="Approved";
             $blog->update();
-
+            $this->response->redirect('blog/allBlogs');
 
         } elseif (isset($postData['restrict'])) {
             $id = $postData['restrict'];
             $blog = Blogs::findFirst($id);
             $blog->status="Not Approved";
             $blog->update();
+            $this->response->redirect('blog/allBlogs');
 
         } elseif (isset($postData['deleteBlog'])) {
             $id = $postData['deleteBlog'];
             $blog = Blogs::findFirst($id);
             $blog->delete();
+            $this->response->redirect('blog/allBlogs');
+
         } elseif (isset($postData['updateBlog'])) {
             $id = $postData['updateBlog'];
             $blog = Blogs::findFirst($id);
@@ -48,6 +51,8 @@ class BlogController extends Controller
             $blog->description= $postData['description'];
             $blog->content= $postData['content'];
             $blog->update();
+            $this->response->redirect('blog/allBlogs');
+
         }
 
         $this->dispatcher->forward(

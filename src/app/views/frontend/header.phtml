@@ -8,9 +8,9 @@
     <div class="nav-item text-nowrap">
       <form action="/index/signOut" method="POST">
         <?php if (isset($_SESSION['userData'])) { ?>
-        <button class="btn btn-dark" type="submit" name="signOut">Sign out</button>
+        <button class="btn btn-dark" type="submit" name="/index/signOut">Sign out</button>
         <?php } else {?>
-        <a class="btn btn-dark" href="signin">Sign In</a>
+        <a class="btn btn-dark" href="/login">Sign In</a>
         <?php } ?>
       </form>
     </div>

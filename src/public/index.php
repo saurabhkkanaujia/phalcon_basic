@@ -62,7 +62,7 @@ $container->set(
                 'host'     => 'mysql-server',
                 'username' => 'root',
                 'password' => 'secret',
-                'dbname'   => 'tutorial',
+                'dbname'   => 'blog',
             ]
         );
     }

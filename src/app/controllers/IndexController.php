@@ -7,17 +7,18 @@ class IndexController extends Controller
 {
     public function indexAction()
     {
-        $this->view->users = Users::find();
+        // $this->view->users = Users::find();
         // echo "jhsvdjvjsvd";
     }
 
     public function signOutAction() {
         session_destroy();
-        $this->dispatcher->forward(
-            [
-                'controller' => 'login',
-                'action' => 'index',
-            ]
-        );
+        $this->response->redirect('login/');
+        // $this->dispatcher->forward(
+        //     [
+        //         'controller' => 'login',
+        //         'action' => 'index',
+        //     ]
+        // );
     }
 }
